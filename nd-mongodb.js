@@ -73,6 +73,7 @@ module.exports = function(RED) {
         var noerror = true;
 
         var connectToDB = function() {
+            if (node.client) return;
             node.status({fill:"grey",shape:"ring",text:RED._("mongodb.status.connecting")});
             MongoClient.connect(node.mongoConfig.url, function(err, client) {
                 if (err) {
@@ -80,6 +81,7 @@ module.exports = function(RED) {
                     if (noerror) { node.error(err); }
                     noerror = false;
                     node.tout = setTimeout(connectToDB, 10000);
+                    delete node.client;
                 }
                 else {
                     node.status({fill:"green",shape:"dot",text:RED._("mongodb.status.connected")});
@@ -208,6 +210,7 @@ module.exports = function(RED) {
         var noerror = true;
 
         var connectToDB = function() {
+            if (node.client) return;
             console.log("connecting:  " + node.mongoConfig.url);
             node.status({fill:"grey",shape:"ring",text:RED._("mongodb.status.connecting")});            
             MongoClient.connect(node.mongoConfig.url, function(err,client) {
@@ -216,6 +219,7 @@ module.exports = function(RED) {
                     if (noerror) { node.error(err); }
                     noerror = false;
                     node.tout = setTimeout(connectToDB, 10000);
+                    delete node.client
                 }
                 else {
                     node.status({fill:"green",shape:"dot",text:RED._("mongodb.status.connected")});
