@@ -95,6 +95,7 @@ module.exports = function(RED) {
                         coll = db.collection(node.collection);
                     }
                     node.on("input",function(msg) {
+                        if (msg.action) return;
                         if (!node.collection) {
                             if (msg.collection) {
                                 coll = db.collection(msg.collection);
@@ -228,6 +229,7 @@ module.exports = function(RED) {
                     noerror = true;
                     var coll;
                     node.on("input", function(msg) {
+                        if (msg.action) return;
                         if (!node.collection) {
                             if (msg.collection) {
                                 coll = db.collection(msg.collection);
