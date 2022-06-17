@@ -1,6 +1,6 @@
 {
     "name"          : "node-red-nd-mongodb",
-    "version"       : "0.0.3",
+    "version"       : "0.0.5",
     "description"   : "Node-RED nodes to talk to a Mongo database",
     "main": "nd-mongodb.js",
     "dependencies"  : {

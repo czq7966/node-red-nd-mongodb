@@ -183,7 +183,7 @@ module.exports = function(RED) {
         }
 
         if (node.mongoConfig && node.mongoConfig.db) { connectToDB(); }
-        else { node.error(RED._("mongodb.errors.missingconfig")); }
+        // else { node.error(RED._("mongodb.errors.missingconfig")); }
 
         node.on("input",function(msg) {
             if (msg.action == "connect" && msg.url) {
@@ -311,7 +311,7 @@ module.exports = function(RED) {
         }
 
         if (node.mongoConfig && node.mongoConfig.db) { connectToDB(); }
-        else { node.error(RED._("mongodb.errors.missingconfig")); }
+        // else { node.error(RED._("mongodb.errors.missingconfig")); }
 
         node.on("input",function(msg) {
             if (msg.action == "connect" && msg.url) {
