@@ -1,0 +1,19 @@
+{
+    "name"          : "node-red-nd-mongodb",
+    "version"       : "0.0.1",
+    "description"   : "Node-RED nodes to talk to a Mongo database",
+    "main": "nd-mongodb.js",
+    "dependencies"  : {
+        "mongodb"   : "^3.6.3"
+    },
+    "author": "CZQ",
+    "license": "Apache-2.0",
+    "keywords": [ "node-red", "mongodb" ],
+    "node-red"      : {
+        "nodes"     : {
+            "nd-mongo": "nd-mongodb.js"
+        }
+    }
+}
+
+  
